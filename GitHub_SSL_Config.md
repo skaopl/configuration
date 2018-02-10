@@ -97,6 +97,15 @@ No reply address can be obtained from the profile page on GitHub website.
 git config --global user.email "email@example.com"
 ```
 
+#### Set push method
+There are two push methods:
+* simple - more strict, push to branch which you pull from;
+* match - push if branch has the same name
+
+```
+git config --global push.default simple
+```
+
 ### Work with GitHub
 
 #### Clone repository
@@ -112,5 +121,13 @@ git clone git://github.com/skaopl/configuration
 ```
 git add -A
 git commit -am "What was done"
+```
+Result:
+```
+[master (root-commit) 22aee3d] GitHub SSH configuration
+ 1 file changed, 116 insertions(+)
+ create mode 100644 GitHub_SSL_Config.md
+```
+```
 git push
 ```

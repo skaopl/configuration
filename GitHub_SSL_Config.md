@@ -8,9 +8,9 @@ This manual works for Linux operating systems.
 
 #### Check if key already exists
 Check the home directory listing to see if you already have a public SSH key:
-
-    ls -al ~/.ssh
-
+```
+ls -al ~/.ssh
+```
 If following error is displayed:
 ```
 ls: nie ma dostępu do '/home/username/.ssh': Nie ma takiego pliku ani katalogu
@@ -21,9 +21,10 @@ there are no ssh keys and you need to generete new one.
 #### Generate ssh key
 
 GitHub email: @gmail.com
-
-    ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-
+```
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+Result:
 ```
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/username/.ssh/id_rsa): 
@@ -50,28 +51,32 @@ The key's randomart image is:
 
 #### SSH Agent 
 Start the ssh-agent in the background
-
-    eval $(ssh-agent -s)
+```
+eval $(ssh-agent -s)
+```
 Result:
-
-    Agent pid 2682
+```
+Agent pid 2682
+```
 
 Add your SSH private key to the ssh-agent
-
-    ssh-add ~/.ssh/id_rsa
-    Enter passphrase for /home/username/.ssh/id_rsa: 
-    Identity added: /home/username/.ssh/id_rsa (/home/username/.ssh/id_rsa)
-
+```
+ssh-add ~/.ssh/id_rsa
+Enter passphrase for /home/username/.ssh/id_rsa: 
+Identity added: /home/username/.ssh/id_rsa (/home/username/.ssh/id_rsa)
+```
 
 Copy the SSH to your clipboard
-
-    cat ~/.ssh/id_rsa.pub
+```
+cat ~/.ssh/id_rsa.pub
+```
 and paste the whole content of the file as new SSH key in GitHub profile.
 
 ### Testing SSH connection
 Connect to GitHub via SSH
-
-    ssh -T git@github.com
+```
+ssh -T git@github.com
+```
 Result:
 ```
 The authenticity of host 'github.com (xxx.xxx.xxx.xxx)' can't be established.
@@ -110,14 +115,15 @@ git config --global push.default simple
 
 #### Clone repository
 ```
-git clone git@github.com:<username>/<repo>.git
+git clone git@github.com:<username>/<repository>.git
 ```
 Example for this repository:
 ```
 git clone git@github.com:skaopl/configuration.git
 ```
 
-#### Push to the repository
+#### Save changes to the repository
+##### Commit
 ```
 git add -A
 git commit -am "What was done"
@@ -128,17 +134,27 @@ Result:
  1 file changed, 116 insertions(+)
  create mode 100644 GitHub_SSL_Config.md
 ```
+##### Push
 ```
 git push
 ```
-
-If following error occurs:
-fatal: remote error: 
+Result:
 ```
-You can't push to git://github.com/<username>/<repo>.git
-Use https://github.com/<username>/<repo>.git
+Counting objects: 9, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (9/9), 2.22 KiB | 0 bytes/s, done.
+Total 9 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), done.
+To git@github.com:<username>/<repository>.git
+```
+If following error occurs:
+```
+fatal: remote error:
+You can't push to git://github.com/<username>/<repository>.git
+Use https://github.com/<username>/<repository>.git
 ```
 You need to convert the repository to use a different url for connetion:
 ```
-git remote set-url origin git@github.com:<username>/<repo>.git
+git remote set-url origin git@github.com:<username>/<repository>.git
 ```

@@ -110,11 +110,11 @@ git config --global push.default simple
 
 #### Clone repository
 ```
-git clone git://github.com/username/your-repository
+git clone git@github.com:<username>/<repo>.git
 ```
 Example for this repository:
 ```
-git clone git://github.com/skaopl/configuration
+git clone git@github.com:skaopl/configuration.git
 ```
 
 #### Push to the repository
@@ -130,4 +130,15 @@ Result:
 ```
 ```
 git push
+```
+
+If following error occurs:
+fatal: remote error: 
+```
+You can't push to git://github.com/<username>/<repo>.git
+Use https://github.com/<username>/<repo>.git
+```
+You need to convert the repository to use a different url for connetion:
+```
+git remote set-url origin git@github.com:<username>/<repo>.git
 ```

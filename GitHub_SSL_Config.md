@@ -84,15 +84,15 @@ Connection to github.com closed by remote host.
 
 ### Configure github
 #### Set your username
-It's does not have to be the same as GitHub username, so you can use your full name here.
+It's does not have to be the same as GitHub username, so you can use your full name here.  
 It will be visible as the author of the commit.
 ```
 git config --global user.name "<username>"
 ```
 
 #### Set your commit email address in Git
-You can use your real email address or use the no reply version provided by GitHub.
-For the real address use the one provided while creating SSH keys.
+You can use your real email address or use the no reply version provided by GitHub.  
+For the real address use the one provided while creating SSH keys.  
 No reply address can be obtained from the profile page on GitHub website.
 ```
 git config --global user.email "email@example.com"
@@ -108,6 +108,13 @@ git config --global push.default simple
 ```
 
 ### Work with GitHub
+
+#### First time setup
+Go to your home directory and create git catalog.  
+Go to git catalog and type:
+```
+git init
+```
 
 #### Clone repository
 ```

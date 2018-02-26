@@ -14,7 +14,7 @@ ls -al ~/.ssh
 If following error is displayed:
 ```
 ls: cannot access '/home/<username>/.ssh': No such file or directory
-```  
+```
 there are no ssh keys and you need to generete new one.
 
 #### Generate ssh key
@@ -26,10 +26,10 @@ Use the default path for storing the key.
 Result:
 ```
 Generating public/private rsa key pair.
-Enter file in which to save the key (/home/<username>/.ssh/id_rsa): 
+Enter file in which to save the key (/home/<username>/.ssh/id_rsa):
 Created directory '/home/<username>/.ssh'.
-Enter passphrase (empty for no passphrase): 
-Enter same passphrase again: 
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
 Your identification has been saved in /home/<username>/.ssh/id_rsa.
 Your public key has been saved in /home/<username>/.ssh/id_rsa.pub.
 The key fingerprint is:
@@ -47,7 +47,7 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
-#### SSH Agent 
+#### SSH Agent
 Start the ssh-agent in the background
 ```
 eval $(ssh-agent -s)
@@ -59,7 +59,7 @@ Agent pid 2682
 Add your SSH private key to the ssh-agent
 ```
 ssh-add ~/.ssh/id_rsa
-Enter passphrase for /home/<username>/.ssh/id_rsa: 
+Enter passphrase for /home/<username>/.ssh/id_rsa:
 Identity added: /home/<username>/.ssh/id_rsa (/home/<username>/.ssh/id_rsa)
 ```
 Copy the SSH to your clipboard
@@ -84,15 +84,15 @@ Connection to github.com closed by remote host.
 
 ### Configure github
 #### Set your username
-It's does not have to be the same as GitHub username, so you can use your full name here.  
+It's does not have to be the same as GitHub username, so you can use your full name here.
 It will be visible as the author of the commit.
 ```
 git config --global user.name "<username>"
 ```
 
 #### Set your commit email address in Git
-You can use your real email address or use the no reply version provided by GitHub.  
-For the real address use the one provided while creating SSH keys.  
+You can use your real email address or use the no reply version provided by GitHub.
+For the real address use the one provided while creating SSH keys.
 No reply address can be obtained from the profile page on GitHub website.
 ```
 git config --global user.email "email@example.com"
@@ -110,7 +110,7 @@ git config --global push.default simple
 ### Work with GitHub
 
 #### First time setup
-Go to your home directory and create git catalog.  
+Go to your home directory and create git catalog.
 Go to git catalog and type:
 ```
 git init
@@ -141,7 +141,11 @@ Result:
 
 ##### Push
 ```
-git push
+git push git@github.com:<username>/<repository>.git
+```
+Example for this repository:
+```
+git push git@github.com:skaopl/configuration.git
 ```
 Result:
 ```

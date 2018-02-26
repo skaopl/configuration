@@ -1,0 +1,69 @@
+" GENERAL
+
+set number                                          " Show line numbers
+set ignorecase                                      " Ignore case when searching
+set smartcase                                       " Use smartcase when searching
+set whichwrap+=<,>,h,l                              " Ensure left/right navigation goes to previus/next line
+set undolevels=1000                                 " Increase undo levels
+set mouse=a                                         " Mouse mode enalbed
+
+set expandtab                                       " Expand tabs into spaces
+set ts=4                                            " Set tabs to have 4 spaces
+
+" Delete trailing whitespaces
+autocmd BufWritePre * :%s/\s\+$//e
+
+" Detect .md files as markdown
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+
+
+" KEY MAPPINGS
+
+inoremap jj <Esc>
+
+
+" APPEARANCE
+
+" Enable syntax highlighting
+syntax on
+
+" Nubmer of colors in terminal
+set t_Co=256
+
+" Render color at line 80
+let &colorcolumn="80,".join(range(120,999),",")
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
+
+" Colorscheme
+let g:molokai_original=1
+colorscheme molokai
+
+
+" PROGRAMMING
+
+" Indent when moving to the next line while writing code
+set autoindent
+
+" Show the matching part of the pair for barckets
+set showmatch
+
+" Get filetype specific handling
+filetype plugin indent on
+
+
+" PYTHON
+
+" Enable all Python syntax highlighting features
+let python_highlight_all = 1
+
+
+" LATEX
+
+" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
+" can be called correctly.
+set shellslash
+
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
